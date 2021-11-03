@@ -22,10 +22,20 @@ export default function App() {
       <Stack.Screen name='Login' component={LoginScreen} />
       <Stack.Screen name='Register' component={RegisterScreen} />
       <Stack.Screen name='Home' component={HomeScreen} />
+      <Stack.Screen name='AddChat' component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
+https://youtu.be/MJzmZ9qmdaE?t=7032
 
 const styles = StyleSheet.create({
   container: {
