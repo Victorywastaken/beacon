@@ -9,8 +9,8 @@ const LoginScreen = ( { navigation } ) => {
   const [password, setPassword] = useState('')
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if(user) {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if(authUser) {
         navigation.replace('Home')
       }
     });

@@ -15,7 +15,7 @@ const RegisterScreen = ({ navigation }) => {
       await auth.createUserWithEmailAndPassword(email, password);
       await auth.currentUser.updateProfile({
         displayName: name,
-        photoURL: imageUrl,
+        photoURL: imageUrl || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
       });
     } catch (error) {
       console.log(error);

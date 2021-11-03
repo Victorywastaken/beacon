@@ -13,7 +13,7 @@ const CustomListItem = ({ id, chatName, enterChat }) => {
       />
       <ListItem.Content>
         <ListItem.Title style={{ fontWeight: "800" }}>
-          Chat
+          Beacon Chat
         </ListItem.Title>
         <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
