@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { StyleSheet, SafeAreaView, ScrollView, View } from 'react-native';
 import { Avatar } from 'react-native-elements';
@@ -8,11 +8,25 @@ import { AntDesign, SimpleLineIcons } from '@expo/vector-icons';
 
 const HomeScreen = ({navigation}) => {
 
+  const [chats, setChats] = useState([]);
+
   const signOutUser = () => {
     auth.signOut().then(() => {
       navigation.replace("Login");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = db.collection('chats').onSnapshot(snapshot =>
+      setChats(
+        snapshot.docs.map(doc => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    )
+    return unsubscribe;
+  }, [])
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -50,10 +64,21 @@ const HomeScreen = ({navigation}) => {
     })
   }, [])
 
+  const enterChat = (id, chatName) => {
+    navigation.navigate("Chat", {id, chatName});
+  }
+
   return (
     <SafeAreaView>
-      <ScrollView>
-        <CustomList />
+      <ScrollView style={styles.container}>
+          {chats.map((chat) => (
+            <CustomList
+              key={chat.id}
+              id={chat.id}
+              chatName={chat.data.name}
+              enterChat={enterChat}
+            />
+          ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -61,4 +86,8 @@ const HomeScreen = ({navigation}) => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+  }
+});
