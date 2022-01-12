@@ -7,4 +7,4 @@ and libraries.
 
 Beacon was created using the following technologies:
 
-React-Native, Expo, Firebase, Firestore
+React-Native, Expo, Firebase, Firestore.
